@@ -73,7 +73,7 @@ function renderImages(images) {
                         <p style="margin-top: 5px;">${image.likes}</p>
                     </div>
                     <div style="margin-top: 5px;">
-                        <i style="color:#AFEEEE;" class="fa-solid fa-eye fa-lg"></i>
+                        <i style="color:#2F4F4F;" class="fa-solid fa-eye fa-lg"></i>
                         <p style="margin-top: 5px;">${image.views > 1000 && image.views < 1000000 ? Math.floor(image.views/1000)+"k" : image.views > 1000000 && Math.floor(image.views < 1000000000)+"k" ? image.views /1000000 : Math.floor(image.views/1000000000)+"m"}</p>
                     </div>
                 </div>
