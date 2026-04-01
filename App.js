@@ -56,12 +56,29 @@ async function downloadImage(photoId) {
 //function renders image data 
 function renderImages(images) {
     displayItems.innerHTML = images.map(image => `
-        <div key="${image.id}" class="image">
-            <div class='overlay'>
-                <img src=${image.user.profile_image.small} id='profile-image' style="border-radius: 50%; margin-right: 15px; filter: drop-shadow(0px 6px 5px gray); border:1px solid gray;"/>
+        <div key="${image.id}" class="image" style="perspective: 7px;">
+            <div class='overlay' style="width: 100%; height: fit-content;">
+                <a href="${image.user.links.html}""><img src=${image.user.profile_image.small} id='profile-image' style="border-radius: 50%; margin-right: 15px; filter: drop-shadow(0px 6px 5px gray); border:1px solid gray; cursor:pointer;"/></a>
                 <p style="color: black;">unsplash user: ${image.user.username}<br/> location: ${image.user.location}</p>
             </div>
-            <img class="image-item" src="${image.urls.small_s3}" alt="${image.alt_description}" style="width: 100%; height: 250px;" loading="lazy"/>
+            <div class='details-overlay' style="width: 100%; height: fit-content;">
+                <p>${image.alt_description}</p>
+                <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top:7px;">
+                    <div>
+                        <i style="color:#2F4F4F;" class="fa-solid fa-download fa-lg"></i>
+                        <p style="margin-top: 5px;">${image.downloads > 1000 && image.downloads < 1000000 ? Math.floor(image.downloads/1000)+"k" : image.downloads > 1000000 && Math.floor(image.views < 1000000000)+"k" ? image.downloads /1000000 : Math.floor(image.downloads/1000000000)+"m"}</p>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <i style="color:#DC143C;" class="fa-solid fa-heart fa-lg"></i>
+                        <p style="margin-top: 5px;">${image.likes}</p>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <i style="color:#AFEEEE;" class="fa-solid fa-eye fa-lg"></i>
+                        <p style="margin-top: 5px;">${image.views > 1000 && image.views < 1000000 ? Math.floor(image.views/1000)+"k" : image.views > 1000000 && Math.floor(image.views < 1000000000)+"k" ? image.views /1000000 : Math.floor(image.views/1000000000)+"m"}</p>
+                    </div>
+                </div>
+            </div>
+            <img class="image-item" src="${image.urls.small_s3}" alt="${image.alt_description}" style="width: 100%; height: 100%;" loading="lazy"/>
         </div>
     `).join("");
 }
