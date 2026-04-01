@@ -58,11 +58,9 @@ function renderImages(images) {
     displayItems.innerHTML = images.map(image => `
         <div key="${image.id}" class="image">
             <div class='overlay'>
-                <img src=${image.user.profile_image.small} id='profile-image'/>
-                <p>${image.user.username}<br/> ${image.user.location}</p>
-                <p></p>
+                <img src=${image.user.profile_image.small} id='profile-image' style="border-radius: 50%; margin-right: 15px;"/>
+                <p style="color: black;">unsplash user: ${image.user.username}<br/> location: ${image.user.location}</p>
             </div>
-            <div class='mask'></div>
             <img class="image-item" src="${image.urls.small_s3}" alt="${image.alt_description}" style="width: 100%; height: 250px;" loading="lazy"/>
         </div>
     `).join("");
