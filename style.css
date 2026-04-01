@@ -216,10 +216,6 @@ input:focus{
         transition: all .5s ease;
         font-family: 'caveat';
         font-size: 10px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        -o-border-radius: 5px;
 }
 }
 @media screen and (max-width: 660px) {
