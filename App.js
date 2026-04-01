@@ -62,7 +62,7 @@ function renderImages(images) {
                 <p style="color: black;">unsplash user: ${image.user.username}<br/> location: ${image.user.location}</p>
             </div>
             <div class='details-overlay' style="width: 100%; height: fit-content;">
-                <p>${image.alt_description}</p>
+                <p style="text-align:center;">${image.alt_description}</p>
                 <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top:7px;">
                     <div>
                         <i style="color:#2F4F4F;" class="fa-solid fa-download fa-lg"></i>
@@ -78,7 +78,7 @@ function renderImages(images) {
                     </div>
                 </div>
             </div>
-            <img class="image-item" src="${image.urls.small_s3}" alt="${image.alt_description}" style="width: 100%; height: 100%;" loading="lazy"/>
+            <img class="image-item" src="${image.urls.regular}" alt="${image.alt_description}" style="width: 100%; height: 100%;" loading="lazy"/>
         </div>
     `).join("");
 }
